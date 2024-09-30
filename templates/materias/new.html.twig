@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ingresar Materias{% endblock %}
+
+{% block body %}
+<div class = "container p-4">
+    <h1>Ingresar Materia</h1>
+    <table>
+        {{ include('materias/_form.html.twig') }}
+
+        <a href="{{ path('app_materias_index') }}"><button type="button" class="btn btn-primary">Volver a la Lista</button></a>
+    </table>
+</div>
+{% endblock %}

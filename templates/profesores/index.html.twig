@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profesores CRUD{% endblock %}
+
+{% block body %}
+<div class = "container p-4">
+    <h1>Profesores CRUD</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Materia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profesor in profesores %}
+            <tr>
+                <td>{{ profesor.id }}</td>
+                <td>{{ profesor.nombre }}</td>
+                <td>{{ profesor.apellido }}</td>
+                <td>{{ profesor.materia.nombre }}</td>
+                <td>
+                    <a href="{{ path('app_profesores_show', {'id': profesor.id}) }}"><button type="button" class="btn btn-primary">Mostrar</button></a>
+                    <a href="{{ path('app_profesores_edit', {'id': profesor.id}) }}"><button style="background-color:purple" type="button" class="btn btn-primary">Editar</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No se encontraron datos :/</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_profesores_new') }}"><button type="button" class="btn btn-primary">Ingresar un Profesor</button></a>
+</div>
+{% endblock %}

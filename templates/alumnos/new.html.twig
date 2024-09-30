@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Alumno{% endblock %}
+
+{% block body %}
+<div class = "container p-4">
+    <h1>Ingresar Alumno</h1>
+    <table>
+
+        {{ include('alumnos/_form.html.twig') }}
+        
+        <a href="{{ path('app_alumnos_index') }}"<button type="button" class="btn btn-primary">Volver a la lista</a>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alumnos{% endblock %}
+
+{% block body %}
+<div class = "container p-4">
+    <h1>Alumnos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ alumno.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ alumno.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ alumno.apellido }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ alumno.edad }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href= "{{ path('app_alumnos_index') }}"><button type="button" class="btn btn-primary">Volver a la Lista</button></a>
+
+    <a href= "{{ path('app_alumnos_edit', {'id': alumno.id}) }}"><button style="background-color:purple" type="button" class="btn btn-primary">Editar</button></a>
+
+    <a href= {{ include('alumnos/_delete_form.html.twig') }} </a>
+</div>
+{% endblock %}
